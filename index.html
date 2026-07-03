@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaundryPro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script>
+        emailjs.init({ publicKey: 'uKBtfRyPln45qUjPU' });
+    </script>
+</head>
+
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#hero" class="logo">LaundryPro</a>
+            <div class="nav-links">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#footer" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">Premium laundry service</span>
+                <h1>Laundry,<br>reimagined.</h1>
+                <p>We pick up, clean, and deliver your clothes with the care they deserve. No fuss, no hassle — just fresh laundry at your doorstep.</p>
+                <a href="#services" class="hero-btn">
+                    Explore services
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-num">10K+</span>
+                        <span class="stat-lbl">orders delivered</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">4.9★</span>
+                        <span class="stat-lbl">customer rating</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">2 hr</span>
+                        <span class="stat-lbl">express service</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=600&q=80" alt="washing machine" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="services-header">
+            <h2>Services</h2>
+            <p>Pick what you need, we'll handle the rest</p>
+        </div>
+        <div class="services-body">
+            <div class="services-panel">
+                <div class="services-list">
+                    <div class="service">
+                        <div class="service-info">
+                            <h3>Dry Cleaning</h3>
+                            <span class="price">₹200</span>
+                        </div>
+                        <button class="add-btn">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Add</span>
+                        </button>
+                    </div>
+                    <div class="service">
+                        <div class="service-info">
+                            <h3>Wash & Fold</h3>
+                            <span class="price">₹100</span>
+                        </div>
+                        <button class="add-btn">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Add</span>
+                        </button>
+                    </div>
+                    <div class="service">
+                        <div class="service-info">
+                            <h3>Ironing</h3>
+                            <span class="price">₹30</span>
+                        </div>
+                        <button class="add-btn">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Add</span>
+                        </button>
+                    </div>
+                    <div class="service">
+                        <div class="service-info">
+                            <h3>Stain Removal</h3>
+                            <span class="price">₹500</span>
+                        </div>
+                        <button class="add-btn">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Add</span>
+                        </button>
+                    </div>
+                    <div class="service">
+                        <div class="service-info">
+                            <h3>Leather & Suede</h3>
+                            <span class="price">₹999</span>
+                        </div>
+                        <button class="add-btn">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Add</span>
+                        </button>
+                    </div>
+                    <div class="service">
+                        <div class="service-info">
+                            <h3>Wedding Dress</h3>
+                            <span class="price">₹2,800</span>
+                        </div>
+                        <button class="add-btn">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Add</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-panel">
+                <div class="cart-panel">
+                    <div class="cart-header">
+                        <h3>Cart</h3>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </div>
+                    <div class="cart-items" id="cart-items">
+                        <div class="cart-empty" id="cart-empty">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <p>No items yet</p>
+                        </div>
+                        <table>
+                            <tbody id="cart-body"></tbody>
+                        </table>
+                    </div>
+                    <div class="cart-total">
+                        <span>Total</span>
+                        <span class="total-amount">₹<span id="total">0</span></span>
+                    </div>
+                </div>
+
+                <div class="booking-panel">
+                    <h3>Book</h3>
+                    <form id="booking-form">
+                        <input type="text" placeholder="Name" id="name" required>
+                        <input type="email" placeholder="Email" id="email" required>
+                        <input type="tel" pattern="[0-9]{10}" maxlength="10" minlength="10" placeholder="Phone" id="phone" required>
+                        <button type="submit" class="book-btn">
+                            Confirm Booking
+                        </button>
+                    </form>
+                    <p id="success-message"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="section">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo">LaundryPro</span>
+                    <p>Thoughtful laundry care,<br>delivered to your door.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Dry Cleaning</a></li>
+                        <li><a href="#">Wash & Fold</a></li>
+                        <li><a href="#">Ironing</a></li>
+                        <li><a href="#">Stain Removal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact-list">
+                        <li><i class="fa-regular fa-envelope"></i> hello@laundrypro.in</li>
+                        <li><i class="fa-regular fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fa-regular fa-location-dot"></i> Mumbai, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 LaundryPro</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
